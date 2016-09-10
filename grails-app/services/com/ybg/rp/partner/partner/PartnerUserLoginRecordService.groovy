@@ -7,7 +7,7 @@ class PartnerUserLoginRecordService {
 
     def addLoginLog(PartnerUserInfo userInfo, String ip) {
         def loginRecord = new PartnerUserLoginRecord()
-        loginRecord.userInfo = userInfo
+        loginRecord.userInfo = PartnerUserInfo.get(userInfo.id)
         loginRecord.loginTime = new Date()
         loginRecord.loginDevice = "web"
         loginRecord.loginIp = ip
